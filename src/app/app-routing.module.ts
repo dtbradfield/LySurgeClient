@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { PostsComponent } from './posts/posts.component';
 import { RegisterComponent } from './register/register.component';
@@ -12,7 +11,7 @@ import { UsersComponent } from './users/users.component';
 import { AuthGuard } from './auth-guard.service';
 
 const routes: Routes = [
-  { path: '', component: AppComponent },
+  { path: '', component: LoginComponent },
   { path: 'users', canActivate: [AuthGuard], component: UsersComponent, children: [
     { path: ':id/:name', component: UserComponent }
   ] },
@@ -21,7 +20,6 @@ const routes: Routes = [
     { path: ':id/edit', component: PostEditComponent }
   ] },
   { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
   { path: 'not-found', component: PageNotFoundComponent },
   { path: '**', redirectTo: '/not-found' }
 ];
