@@ -40,7 +40,7 @@ router.post('/', (req, res) => {
 //update
 router.put('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
-        return res.status(400).send('No post with given id:' + req.params.id);
+        return res.status(400).send('No post with given id: ' + req.params.id);
     }
 
     let post = {
@@ -65,7 +65,7 @@ router.delete('/:id', (req, res) => {
     Post.findByIdAndRemove(req.params.id, (err, doc) => {
         if (!err) {
             res.send(doc);
-        } else { console.log('Error deleting Post: ' + JSON.stringify(err, undefined, 2)); }
+        } else { console.log('Error deleting post: ' + JSON.stringify(err, undefined, 2)); }
     });
 });
 
